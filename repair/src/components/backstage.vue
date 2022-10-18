@@ -1,5 +1,6 @@
 <template>
     <div>
+        <el-button @click="back">返回</el-button>
         <el-container>
             <el-header>
                 后台登录
@@ -20,6 +21,11 @@
             return {
                 account: '',
                 password:''
+            }
+        },
+        methods: {
+            back() {
+                this.$router.go(-1)
             }
         },
     }
