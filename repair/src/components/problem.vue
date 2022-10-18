@@ -53,7 +53,7 @@ import message from './message.vue'
         },
         mounted () {
             var that = this
-            axios.get("/db.json")
+            axios.get("./db.json")
             .then(function (response) {
                 console.log(response.data.problem)
                 for (let index = 0; index < response.data.problem.length; index++) {
