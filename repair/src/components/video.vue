@@ -53,7 +53,7 @@ import message from './message.vue'
         },
         mounted () {
             var that = this
-            axios.get("./db.json")
+            axios.get("./git-repair/repair/dist/db.json")
             .then(function (response) {
                 console.log(response.data.video)
                 for (let index = 0; index < response.data.video.length; index++) {
