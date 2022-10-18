@@ -4,8 +4,8 @@
         <div :class="entranceStyle">
             <div>报修管理系统</div>
             <hr size="5" color="yellow"/>
-            <input :class="buttonStyle" type="button" value="后台登录">
-            <input :class="buttonStyle" type="button" value="用户登录">
+            <input :class="buttonStyle" type="button" value="后台登录" @click="GoBackstage">
+            <input :class="buttonStyle" type="button" value="用户登录" @click="GoUser">
         </div>
     </div>
 </template>
@@ -31,6 +31,14 @@
                         this.buttonStyle = "button Small"
                     }
             },16);
+        },
+        methods: {
+            GoBackstage() {
+                this.$router.push({name:'backstage'})
+            },
+            GoUser() {
+                this.$router.push({name:'user'})
+            }
         },
     }
 </script>

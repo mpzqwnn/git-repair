@@ -7,14 +7,10 @@ import Problem from '../components/problem'
 import User from '../components/user'
 import Message from '../components/message'
 import MessageVideo from '../components/message video'
+import Backstage from '../components/backstage'
 
 export default new VueRouter({
     routes:[
-        {
-            name:'user',
-            path:'/user',
-            component:User,
-        },
         {
             name:'login',
             path:'/login',
@@ -73,6 +69,16 @@ export default new VueRouter({
                     component:Message,
                 },
             ]
+        },
+        {
+            name:'user',
+            path:'/user',
+            component:User
+        },
+        {
+            name:'backstage',
+            path:'/backstage',
+            component:Backstage
         },
         {
             path:'/',
