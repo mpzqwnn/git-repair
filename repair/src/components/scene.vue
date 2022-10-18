@@ -53,13 +53,13 @@ import message from './message.vue'
         },
         mounted () {
             var that = this
-            axios.get("http://localhost:3000/scene")
+            axios.get("/db.json")
             .then(function (response) {
-                console.log(response.data)
-                for (let index = 0; index < response.data.length; index++) {
+                console.log(response.data.scene)
+                for (let index = 0; index < response.data.scene.length; index++) {
                     let newData={
-                        title:response.data[index].title,
-                        message:response.data[index].message
+                        title:response.data.scene[index].title,
+                        message:response.data.scene[index].message
                     }
                     that.text.push(newData)
                 }

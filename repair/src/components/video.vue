@@ -53,14 +53,14 @@ import message from './message.vue'
         },
         mounted () {
             var that = this
-            axios.get("http://localhost:3000/video")
+            axios.get("/db.json")
             .then(function (response) {
-                console.log(response.data)
-                for (let index = 0; index < response.data.length; index++) {
+                console.log(response.data.video)
+                for (let index = 0; index < response.data.video.length; index++) {
                     let newData={
-                        title:response.data[index].title,
-                        message:response.data[index].message,
-                        video:response.data[index].video
+                        title:response.data.video[index].title,
+                        message:response.data.video[index].message,
+                        video:response.data.video[index].video
                     }
                     that.text.push(newData)
                 }
