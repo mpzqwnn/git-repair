@@ -42,7 +42,7 @@
         data() {
             return {
                 title:"报修系统",
-                optionimg:"http://www.zhihuibaoxiu.com/tpl/manage/category/images/menu.png",
+                optionimg:"./menu.png",
                 optiontitle:["首页","操作教程","视频教程","场景模板","常见问题"],
                 Width:0,
                 option:["login","operation","video","scene","problem"],
@@ -52,7 +52,7 @@
         },
         methods: {
             open() {
-                this.optionImg ? this.optionimg = "http://www.zhihuibaoxiu.com/tpl/manage/category/images/icon-close.png" : this.optionimg="http://www.zhihuibaoxiu.com/tpl/manage/category/images/menu.png"
+                this.optionImg ? this.optionimg = "./icon-close.png" : this.optionimg="./menu.png"
                 this.optionImg = !this.optionImg
                 this.optionType = !this.optionType
                 console.log(this.option)
