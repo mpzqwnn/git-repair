@@ -4,8 +4,8 @@
             <img align="left" class="logo" src="../assets/logo.png" :alt="title">
             <span class="title">
                 {{title}}
-                <img class="img" align="right" :src="optionimg" v-show="Width<=1000" @click="open">
-                <div class="option" v-if="Width>1000">
+                <img class="img" align="right" :src="optionimg" v-show="Width<=1300" @click="open">
+                <div class="option" v-if="Width>1300">
                     <a>
                         <router-link replace class="optionTitle" active-class="check" :to="{name:option[0]}">{{optiontitle[0]}}</router-link>
                         <router-link replace class="optionTitle" active-class="check" :to="{name:option[1]}">{{optiontitle[1]}}</router-link>
@@ -14,7 +14,7 @@
                         <router-link replace class="optionTitle" active-class="check" :to="{name:option[4]}">{{optiontitle[4]}}</router-link>
                     </a>
                 </div>
-                <div class="option" v-if="Width<1000&&!optionType">
+                <div class="option" v-if="Width<1300&&!optionType">
                     <div>
                         <router-link class="optionTitle" active-class="check" :to="{name:option[0]}">{{optiontitle[0]}}</router-link>
                     </div>

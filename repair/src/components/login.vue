@@ -21,7 +21,7 @@
         },
         mounted () {
             setInterval(() => {
-                if(window.outerWidth>1200){
+                if(window.outerWidth>1300){
                     this.imgStyle = "img Big"
                     this.entranceStyle = "entrance Big"
                     this.buttonStyle = "button Big"
@@ -65,11 +65,10 @@
 .img{
     margin-top: 5%;
     margin-left: 10%;
-    height: 100%;
 }
 .Big{
     margin-top: 10%;
-    width: 500px;
+    width: 400px;
 }
 .Small{
     margin-top: 10%;
@@ -77,7 +76,7 @@
 }
 .entrance{
     text-align: center;
-    margin-right: 1%;
+    margin-right: 10%;
 }
 .button{
     background-color: sandybrown;
