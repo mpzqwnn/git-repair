@@ -8,8 +8,10 @@ import User from '../components/user'
 import Message from '../components/message'
 import MessageVideo from '../components/message video'
 import Backstage from '../components/backstage'
+import Menu from '../components/menu'
+import Manage from '../components/manage'
 
-export default new VueRouter({
+const router = new VueRouter({
     routes:[
         {
             name:'login',
@@ -81,8 +83,38 @@ export default new VueRouter({
             component:Backstage
         },
         {
+            name:'menu',
+            path:'/menu',
+            component:Menu
+        },
+        {
+            name:'manage',
+            path:'/manage',
+            component:Manage
+        },
+        {
             path:'/',
             redirect:'/login'
         }
     ]
 })
+
+router.beforeEach((to,from,next)=>{
+    var user = localStorage.getItem('user')
+    var backstage = localStorage.getItem('backstage')
+    if (to.name == 'menu' && user == 0){
+        next({
+            name:'user',
+            replace:true
+        })
+    } else if(to.name == 'manage' && backstage == 0) {
+        next({
+            name:'backstage',
+            replace:true
+        })
+    } else {
+        next()
+    }
+})
+
+export default router

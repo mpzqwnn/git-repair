@@ -4,7 +4,9 @@
             <div class="text text1">
                 <span>报修系统</span>
                 <hr size="5" color="yellow">
-                <span>自己做的网页，主要功能为浏览教程和常见问题，登录功能暂时未编写</span>
+                <p>自己做的网页，主要功能为浏览教程和常见问题，登录后功能和注册暂时未编写</p>
+                <p>后台现有账号：mpzqwnn密码：A123456</p>
+                <p>用户现有账号：mpzqwnn密码：123456</p>
             </div>
             <div class="text text2">
                 <span>联系方式</span>

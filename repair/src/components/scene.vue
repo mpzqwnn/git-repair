@@ -36,7 +36,6 @@
 <script>
 import axios from 'axios'
 import notice from './notice.vue'
-import message from './message.vue'
     export default {
         data() {
             return {
@@ -49,7 +48,6 @@ import message from './message.vue'
         },
         components: {
             notice,
-            message,
         },
         mounted () {
             var that = this

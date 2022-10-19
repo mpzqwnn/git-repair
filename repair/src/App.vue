@@ -25,6 +25,8 @@ export default {
     this.$bus.$on('',(data)=>{
       that.num = data
     })
+    localStorage.setItem('backstage',0)
+    localStorage.setItem('user',0)  
   },
 }
 </script>
