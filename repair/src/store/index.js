@@ -35,7 +35,7 @@ const mutations = {
         if(localStorage.getItem('backstage') != 1){
             localStorage.setItem('backstage',0)  
         }
-        axios.get("./git-repair/repair/dist/account.json")
+        axios.get("./account.json")
         .then(function (response) {
             for (let index = 0; index < response.data.backstage.length; index++) {
                 var account = response.data.backstage[index].account
@@ -55,7 +55,7 @@ const mutations = {
         if(localStorage.getItem('user') != 1){
             localStorage.setItem('user',0)  
         }
-        axios.get("./git-repair/repair/dist/account.json")
+        axios.get("./account.json")
         .then(function (response) {
             for (let index = 0; index < response.data.user.length; index++) {
                 var account = response.data.user[index].account
