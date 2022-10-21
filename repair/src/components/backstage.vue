@@ -20,8 +20,8 @@
     export default {
         data() {
             return {
-                account: '',
-                password:''
+                account: this.$store.state.Backstage,
+                password: this.$store.state.BackstagePassword
             }
         },
         methods: {
