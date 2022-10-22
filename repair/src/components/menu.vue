@@ -50,7 +50,6 @@
           </el-submenu>
         </el-menu>
       </el-aside>
-  
       <el-container>
         <el-header style="text-align: right; font-size: 12px">
           <el-dropdown>
@@ -64,14 +63,38 @@
           </el-dropdown>
           <span>{{$store.state.User}}</span>
         </el-header>
-    
         <el-main>
-            <div>上门时间：<el-date-picker  v-model="date"  type="datetime"  placeholder="选择日期时间"></el-date-picker></div>
-            <div>地址：<el-input v-model="address" clearable></el-input></div>
-            <div>电话：<el-input v-model="number" clearable></el-input></div>
-            <span>故障描述：</span>
-            <div><el-input type="textarea" :rows="5" v-model="text" clearable></el-input></div>
-            <el-button type="primary">确定提交</el-button>
+          <el-form ref="form" :model="form" label-width="80px">
+            <el-form-item label="姓名">
+              <el-input v-model="form.name"></el-input>
+            </el-form-item>
+            <el-form-item label="报修地址">
+              <el-input v-model="form.address"></el-input>
+            </el-form-item>
+            <el-form-item label="报修时间">
+              <el-col :span="4">
+                <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
+              </el-col>
+              <el-col class="line" :span="1">——</el-col>
+              <el-col :span="4">
+                <el-time-picker placeholder="选择时间" v-model="form.date2" style="width: 100%;"></el-time-picker>
+              </el-col>
+            </el-form-item>
+            <el-form-item label="维修性质">
+              <el-radio-group v-model="form.type">
+                <el-radio label="以旧换新"></el-radio>
+                <el-radio label="普通维护"></el-radio>
+                <el-radio label="紧急维修"></el-radio>
+              </el-radio-group>
+            </el-form-item>
+            <el-form-item label="维修原因">
+              <el-input type="textarea" v-model="form.desc"></el-input>
+            </el-form-item>
+            <el-form-item>
+              <el-button type="primary" @click="Submit">立即提交</el-button>
+              <el-button @click="cancel">取消</el-button>
+            </el-form-item>
+            </el-form>
         </el-main>
       </el-container>
     </el-container>
@@ -82,11 +105,21 @@
     export default {
         data() {
             return {
-                address: '',
-                number:'',
-                text:'',
-                date:''
+                form:{
+                  name: '',
+                  address: '',
+                  date1: '',
+                  date2: '',
+                  type: [],
+                  desc: ''
+                }
             }
+        },
+        methods: {
+          Submit() {
+          },
+          cancel(){
+          }
         },
     }
 </script>
@@ -111,5 +144,8 @@
     color: #333;
   }
 
+  .line{
+    text-align: center;
+  }
 
 </style>

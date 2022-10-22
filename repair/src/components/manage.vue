@@ -67,16 +67,20 @@
     
         <el-main>
             <el-table :data="tableData">
-                <el-table-column prop="object" label="种类" width="100">
-                </el-table-column>
-                <el-table-column prop="date" label="日期" width="140">
-                </el-table-column>
-                <el-table-column prop="name" label="姓名" width="120">
-                </el-table-column>
-                <el-table-column prop="address" label="地址">
-                </el-table-column>
-                <el-table-column prop="text" label="需求描述">
-                </el-table-column>
+              <el-table-column prop="object" label="种类" width="100">
+              </el-table-column>
+              <el-table-column prop="date" label="日期" width="140">
+              </el-table-column>
+              <el-table-column prop="name" label="姓名" width="120">
+              </el-table-column>
+              <el-table-column prop="address" label="地址">
+              </el-table-column>
+              <el-table-column prop="text" label="需求" width="200">
+                <el-link type="primary">查看</el-link>
+              </el-table-column>
+              <el-table-column prop="text" label="订单状态" width="100">
+                <div>{{radio}}</div>
+              </el-table-column>
             </el-table>
         </el-main>
       </el-container>
@@ -86,23 +90,25 @@
 
 <script>
     export default {
-        data() {
-            return {
-                address: '',
-                number:'',
-                text:'',
-                date:'',
-                tableData:[
-                    {
-                        object:'',
-                        date:'',
-                        name:'',
-                        address:'',
-                        text:''
-                    }
-                ]
-            }
-        },
+      data() {
+          return {
+              address: '',
+              number:'',
+              text:'',
+              date:'',
+              radio:'',
+              tableData:[
+                {
+                  name: '',
+                  address: '',
+                  date1: '',
+                  date2: '',
+                  type: [],
+                  desc: ''
+                }
+              ]
+          }
+      },
     }
 </script>
 
