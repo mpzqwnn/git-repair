@@ -10,7 +10,7 @@
                 <div v-if="$store.state.User==''">账号：<el-input v-model="account" placeholder="请输入账号"></el-input></div>
                 <div v-if="$store.state.User==''">密码：<el-input v-model="password" placeholder="请输入密码" show-password></el-input></div>
                 <br>
-                <el-button type="primary" @click="Sign">登录</el-button><el-button type="primary" v-if="$store.state.User==''">注册</el-button>
+                <el-button type="primary" @click="Sign">登录</el-button>
             </el-main>
         </el-container>
     </div>
@@ -36,7 +36,9 @@
                 } else {
                     var token = this.account + '%' + this.password
                     this.$store.dispatch('userSign',token)
-                    this.$router.push({name:'menu'})
+                    if (this.account != '' || this.password != '') {
+                        this.$router.push({name:'menu'})
+                    }
                 }
             }
         },

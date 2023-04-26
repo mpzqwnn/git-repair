@@ -58,7 +58,6 @@
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>个人信息</el-dropdown-item>
               <el-dropdown-item>订单历史</el-dropdown-item>
-              <el-dropdown-item>登录记录</el-dropdown-item>
               <el-dropdown-item>退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
@@ -78,8 +77,7 @@
               <el-table-column prop="text" label="需求" width="200">
                 <el-link type="primary">查看</el-link>
               </el-table-column>
-              <el-table-column prop="text" label="订单状态" width="100">
-                <div>{{radio}}</div>
+              <el-table-column prop="type" label="订单类型" width="100">
               </el-table-column>
             </el-table>
         </el-main>
@@ -103,7 +101,7 @@
                   address: '',
                   date1: '',
                   date2: '',
-                  type: [],
+                  type: '',
                   desc: ''
                 }
               ]

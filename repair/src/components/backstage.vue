@@ -36,7 +36,9 @@
                 } else {
                     var token = this.account + '%' + this.password
                     this.$store.dispatch('backstageSign',token)
-                    this.$router.push({name:'manage'})
+                    if (this.account != '' || this.password != '') {
+                        this.$router.push({name:'manage'})
+                    }
                 }
             }
         },

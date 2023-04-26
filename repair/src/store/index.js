@@ -46,6 +46,9 @@ const mutations = {
                     localStorage.setItem('backstage',1)
                 }
             }
+            if (state.Backstage == '' || state.BackstagePassword == '') {
+                alert('账号或密码错误，请重试')
+            }
         },function(err){
             console.log(err)
         })
@@ -65,6 +68,9 @@ const mutations = {
                     state.UserPassword = arr[1]
                     localStorage.setItem('user',1)
                 }
+            }
+            if (state.User == '' || state.UserPassword == '') {
+                alert('账号或密码错误，请重试')
             }
         },function(err){
             console.log(err)

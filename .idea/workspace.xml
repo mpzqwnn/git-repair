@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5c4be507-c2ba-4e57-96b6-6d8ebe3c238e" name="Changes" comment="tenth commit">
+      <change beforePath="$PROJECT_DIR$/repair/src/components/backstage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/repair/src/components/backstage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repair/src/components/manage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/repair/src/components/manage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repair/src/components/menu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/repair/src/components/menu.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repair/src/components/user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/repair/src/components/user.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repair/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/repair/src/store/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="18882130fd661f663dbc1c3f498d6d4060739c8b" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GHeqL1XoJ8qBej6nJWlFSV75pg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/QQPCmgr/Desktop/word/报修系统&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/git-repair/repair/dist/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c4be507-c2ba-4e57-96b6-6d8ebe3c238e" name="Changes" comment="" />
+      <created>1666050133657</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666050133657</updated>
+      <workItem from="1666050139124" duration="1751000" />
+      <workItem from="1666067427012" duration="36000" />
+      <workItem from="1666067480138" duration="891000" />
+      <workItem from="1666077174739" duration="2207000" />
+      <workItem from="1666080314614" duration="520000" />
+      <workItem from="1666081299254" duration="465000" />
+      <workItem from="1666084555282" duration="1358000" />
+      <workItem from="1666181788975" duration="1237000" />
+      <workItem from="1666321747230" duration="165000" />
+      <workItem from="1666412278865" duration="120000" />
+      <workItem from="1682521550235" duration="392000" />
+    </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <created>1666051492306</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666051492306</updated>
+    </task>
+    <task id="LOCAL-00002" summary="third commit">
+      <created>1666067600766</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666067600767</updated>
+    </task>
+    <task id="LOCAL-00003" summary="third commit">
+      <created>1666068292232</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666068292232</updated>
+    </task>
+    <task id="LOCAL-00004" summary="four commit">
+      <created>1666077267748</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666077267748</updated>
+    </task>
+    <task id="LOCAL-00005" summary="four commit">
+      <created>1666078273161</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666078273161</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fifth commit">
+      <created>1666080380914</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666080380914</updated>
+    </task>
+    <task id="LOCAL-00007" summary="sixth commit">
+      <created>1666081372971</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1666081372972</updated>
+    </task>
+    <task id="LOCAL-00008" summary="sixth commit">
+      <created>1666081525144</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1666081525144</updated>
+    </task>
+    <task id="LOCAL-00009" summary="seventh commit">
+      <created>1666084583022</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1666084583022</updated>
+    </task>
+    <task id="LOCAL-00010" summary="seventh commit">
+      <created>1666085452702</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666085452702</updated>
+    </task>
+    <task id="LOCAL-00011" summary="seventh commit">
+      <created>1666085812867</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1666085812867</updated>
+    </task>
+    <task id="LOCAL-00012" summary="eighth commit">
+      <created>1666181834106</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1666181834106</updated>
+    </task>
+    <task id="LOCAL-00013" summary="eighth commit">
+      <created>1666182116753</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1666182116753</updated>
+    </task>
+    <task id="LOCAL-00014" summary="eighth commit">
+      <created>1666182364713</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1666182364714</updated>
+    </task>
+    <task id="LOCAL-00015" summary="eighth commit">
+      <created>1666183437688</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1666183437688</updated>
+    </task>
+    <task id="LOCAL-00016" summary="ninth commit">
+      <created>1666321788016</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1666321788016</updated>
+    </task>
+    <task id="LOCAL-00017" summary="tenth commit">
+      <created>1666412331845</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1666412331845</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="5ed7843b-b940-463b-9b46-f0bf10674a44">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="5ed7843b-b940-463b-9b46-f0bf10674a44" value="TOOL_WINDOW" />
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <MESSAGE value="third commit" />
+    <MESSAGE value="four commit" />
+    <MESSAGE value="fifth commit" />
+    <MESSAGE value="sixth commit" />
+    <MESSAGE value="seventh commit" />
+    <MESSAGE value="eighth commit" />
+    <MESSAGE value="ninth commit" />
+    <MESSAGE value="tenth commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="tenth commit" />
+  </component>
+</project>
