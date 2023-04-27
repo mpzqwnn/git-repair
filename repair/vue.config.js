@@ -4,5 +4,13 @@ module.exports = defineConfig({
   parallel:false,
   assetsDir:'static',
   publicPath:'./',
-  transpileDependencies: true
+  transpileDependencies: true,
+  configureWebpack: {
+    resolve: { fallback: { fs: false } }
+  },
+  pluginOptions:{
+    electronBuilder:{
+      nodeIntegration:true
+    }
+  }
 })

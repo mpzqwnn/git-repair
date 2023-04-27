@@ -8,45 +8,9 @@
             <el-menu-item-group>
               <template slot="title">分组一</template>
               <el-menu-item @click.native="SetNum(0)" index="1-1">报修提交</el-menu-item>
-              <el-menu-item index="1-2">选项2</el-menu-item>
             </el-menu-item-group>
-            <el-menu-item-group title="分组2">
-              <el-menu-item index="1-3">选项3</el-menu-item>
+            <el-menu-item-group title="更多功能敬请期待">
             </el-menu-item-group>
-            <el-submenu index="1-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="1-4-1">选项4-1</el-menu-item>
-            </el-submenu>
-          </el-submenu>
-          <el-submenu index="2">
-            <template slot="title"><i class="el-icon-menu"></i>导航二</template>
-            <el-menu-item-group>
-              <template slot="title">分组一</template>
-              <el-menu-item index="2-1">选项1</el-menu-item>
-              <el-menu-item index="2-2">选项2</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="分组2">
-              <el-menu-item index="2-3">选项3</el-menu-item>
-            </el-menu-item-group>
-            <el-submenu index="2-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="2-4-1">选项4-1</el-menu-item>
-            </el-submenu>
-        </el-submenu>
-          <el-submenu index="3">
-            <template slot="title"><i class="el-icon-setting"></i>导航三</template>
-            <el-menu-item-group>
-              <template slot="title">分组一</template>
-              <el-menu-item index="3-1">选项1</el-menu-item>
-              <el-menu-item index="3-2">选项2</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="分组2">
-              <el-menu-item index="3-3">选项3</el-menu-item>
-            </el-menu-item-group>
-            <el-submenu index="3-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="3-4-1">选项4-1</el-menu-item>
-            </el-submenu>
           </el-submenu>
         </el-menu>
       </el-aside>
@@ -94,20 +58,21 @@
               <el-button @click.native="cancel('form')">重写</el-button>
             </el-form-item>
             </el-form>
-            
+            <div v-show="Snum==1">
+              <h1>当前账号：{{$store.state.User}}</h1>
+              <h2>当前密码：{{$store.state.UserPassword}}</h2>
+            </div>
             <el-table v-show="Snum==2" :data="tableData">
-              <el-table-column prop="object" label="种类" width="100">
+              <el-table-column prop="type" label="种类" width="100">
               </el-table-column>
-              <el-table-column prop="date" label="日期" width="140">
+              <el-table-column prop="date1" label="日期" width="140">
               </el-table-column>
               <el-table-column prop="name" label="姓名" width="120">
               </el-table-column>
               <el-table-column prop="address" label="地址">
               </el-table-column>
-              <el-table-column prop="text" label="需求" width="200">
-                <el-link type="primary">查看</el-link>
-              </el-table-column>
-              <el-table-column prop="type" label="订单类型" width="100">
+              <el-table-column prop="desc" label="需求" width="200">
+                
               </el-table-column>
             </el-table>
         </el-main>
@@ -118,6 +83,7 @@
 
 <script>
 import axios from 'axios'
+import fs from 'fs'
     export default {
         data() {
             return {
@@ -131,45 +97,49 @@ import axios from 'axios'
                   desc: '',
                 },
                 tableData:[
-                  {
-                    name: '',
-                    address: '',
-                    date1: '',
-                    date2: '',
-                    type: '',
-                    desc: ''
-                  }
-                ]
+                {
+                  name: '',
+                  address: '',
+                  date1: '',
+                  date2: '',
+                  type: '',
+                  desc: ''
+                }
+              ]
             }
+        },
+        mounted () {
+          var that= this
+          axios.get('./order.json',{
+            "user":that.$store.state.User
+            })
+          .then(function(response){
+            that.tableData = response.data.order
+          });
         },
         methods: {
           
           Submit() {
-            var that = this
-            axios({
-              method:"post",
-              url:"../../public/order.json/order",
-              data:{
-              "user":that.$store.state.User,
-              "name":that.form.name,
-              "address":that.form.address,
-              "date1":that.form.date1,
-              "date2":that.form.date2,
-              "type":that.form.type,
-              "desc":that.form.desc
-              },
-              headers:{
-                 "Content-Type":"application/json"
-                },
-              transformRequest(data) {
-                return JSON.stringify(data);
-              }
-            }).then(function (response) {
-              console.log(response);
-              that.$refs['form'].resetFields()
-            }).catch(function (error) {
-              console.log(error);
-            });
+            if(this.form.address && this.form.date1 && this.form.date2 && this.form.desc && this.form.name && this.form.type){
+              this.$set(this.form,'user',this.$store.state.User)
+              this.$set(this.form,'Progress',false)
+              this.$set(this.form,'id',this.tableData.length)
+              var that = this
+              fs.readFile('./order.json',function(err,data){
+                var msg = JSON.parse(data.toString());
+                msg.order.push(that.form)
+                var str = JSON.stringify(msg,'','\t')
+                fs.writeFile('./order.json',str,function(err) {
+                  if (err) {
+                    console.error(err);
+                  }
+                  alert('提交成功');
+                  that.$refs['form'].resetFields()
+                })
+              })
+            }else{
+              alert('请输入完整信息')
+            }
           },
           cancel(form){
             this.$refs[form].resetFields()
@@ -178,6 +148,9 @@ import axios from 'axios'
             this.Snum = x
           },
           clear(){
+            this.$store.state.User =""
+            this.$store.state.UserPassword =""
+            this.$router.push({name:'user'})
           }
         },
         

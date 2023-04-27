@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c4be507-c2ba-4e57-96b6-6d8ebe3c238e" name="Changes" comment="tenth commit">
-      <change beforePath="$PROJECT_DIR$/repair/src/components/backstage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/repair/src/components/backstage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repair/src/components/manage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/repair/src/components/manage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repair/src/components/menu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/repair/src/components/menu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repair/src/components/user.vue" beforeDir="false" afterPath="$PROJECT_DIR$/repair/src/components/user.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repair/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/repair/src/store/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="5c4be507-c2ba-4e57-96b6-6d8ebe3c238e" name="Changes" comment="tenth commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,6 +66,7 @@
       <workItem from="1666321747230" duration="165000" />
       <workItem from="1666412278865" duration="120000" />
       <workItem from="1682521550235" duration="392000" />
+      <workItem from="1682589278863" duration="365000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1666051492306</created>
