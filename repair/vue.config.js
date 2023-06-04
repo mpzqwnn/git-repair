@@ -6,11 +6,27 @@ module.exports = defineConfig({
   publicPath:'./',
   transpileDependencies: true,
   configureWebpack: {
-    resolve: { fallback: { fs: false } }
+    resolve: {
+      fallback:{
+        fs: false
+      }
+    },
+    externals: {
+      './cptable': 'var cptable',
+    },
   },
   pluginOptions:{
     electronBuilder:{
       nodeIntegration:true
+    }
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        sassOptions: {
+          outputStyle: 'expanded'
+        }
+      }
     }
   }
 })

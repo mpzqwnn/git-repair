@@ -3,7 +3,7 @@ module.exports = {
     mode: 'development',
     node: {
       fs: 'empty'
-    },
+     },
     externals: {
         'electron': 'require("electron")'
       },

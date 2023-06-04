@@ -6,6 +6,7 @@ import store from './store'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios'
+import fs from 'fs'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -17,6 +18,7 @@ new Vue({
   axios,
   router,
   store,
+  fs,
   beforeCreate(){
     Vue.prototype.$bus = this
   }

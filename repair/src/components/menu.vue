@@ -62,7 +62,7 @@
               <h1>当前账号：{{$store.state.User}}</h1>
               <h2>当前密码：{{$store.state.UserPassword}}</h2>
             </div>
-            <el-table v-show="Snum==2" :data="tableData">
+            <el-table v-show="Snum==2" :data="tableData" :key="tableKey">
               <el-table-column prop="type" label="种类" width="100">
               </el-table-column>
               <el-table-column prop="date1" label="日期" width="140">
@@ -72,8 +72,14 @@
               <el-table-column prop="address" label="地址">
               </el-table-column>
               <el-table-column prop="desc" label="需求" width="200">
-                
               </el-table-column>
+              <el-table-column prop="Progress" label="是否完成" width="200">
+                <template slot-scope="scope">
+                  <a v-show="scope.row.Progress">完成</a>
+                  <a v-show="!scope.row.Progress">未完成</a>
+                </template>
+              </el-table-column>
+
             </el-table>
         </el-main>
       </el-container>
@@ -83,11 +89,16 @@
 
 <script>
 import axios from 'axios'
-import fs from 'fs'
+import Buffer from 'vue-buffer'
     export default {
         data() {
             return {
+              tableKey:0,
                 Snum:0,
+                token:"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",
+                owern:"mpzqwnn",
+                repo:"git-repair",
+                path:"repair/dist/order.json",
                 form:{
                   name: '',
                   address: '',
@@ -96,47 +107,64 @@ import fs from 'fs'
                   type: '',
                   desc: '',
                 },
-                tableData:[
-                {
-                  name: '',
-                  address: '',
-                  date1: '',
-                  date2: '',
-                  type: '',
-                  desc: ''
-                }
-              ]
+                tableData:[]
             }
         },
         mounted () {
           var that= this
-          axios.get('./order.json',{
-            "user":that.$store.state.User
-            })
-          .then(function(response){
+          axios.get('./order.json')
+          .then(function (response) {
             that.tableData = response.data.order
-          });
+          }
+          )
         },
         methods: {
-          
           Submit() {
             if(this.form.address && this.form.date1 && this.form.date2 && this.form.desc && this.form.name && this.form.type){
               this.$set(this.form,'user',this.$store.state.User)
               this.$set(this.form,'Progress',false)
               this.$set(this.form,'id',this.tableData.length)
+              this.form.date1= this.form.date1.toString().split(" ")[0]+' ' +this.form.date1.toString().split(" ")[1]+' ' +this.form.date1.toString().split(" ")[2]+' ' +this.form.date1.toString().split(" ")[3]+' '+this.form.date2.toString().split(' ')[4]
               var that = this
-              fs.readFile('./order.json',function(err,data){
-                var msg = JSON.parse(data.toString());
-                msg.order.push(that.form)
-                var str = JSON.stringify(msg,'','\t')
-                fs.writeFile('./order.json',str,function(err) {
-                  if (err) {
-                    console.error(err);
+              axios.get(`https://api.github.com/repos/${this.owern}/${this.repo}/contents/${this.path}`, {
+                  headers: {
+                      Authorization: `token ${that.token}`,
+                      Accept: 'application/vnd.github.v3.raw+json'
                   }
-                  alert('提交成功');
-                  that.$refs['form'].resetFields()
-                })
               })
+              .then(response => {
+                const data = response.data
+                data.order.push(that.form)
+                const content=JSON.stringify(data,'','\t')
+                const body = {
+                   message: 'update data',
+                   content: Buffer.from(content).toString('base64'),
+                   sha: response.headers.etag.replace(/"/g, '')
+                };
+                return axios({
+                   method: 'PUT',
+                   url: `https://api.github.com/repos/${that.owern}/${that.repo}/contents/${that.path}`,
+                     headers: {
+                       Authorization: `token ${that.token}`,
+                       Accept: 'application/vnd.github.v3+json',
+                       'Content-Type': 'application/json'
+                   },
+                   data: body
+                });
+              })
+              .then(response => {
+                  alert('提交成功');
+                  that.$refs["form"].resetFields()
+              })
+              .catch(error => {
+                  console.error('Error updating file:', error);
+              });
+              var that= this
+              axios.get('./order.json')
+              .then(function (response) {
+                  that.tableData = response.data.order
+                }
+              )
             }else{
               alert('请输入完整信息')
             }

@@ -29,10 +29,12 @@
     
         <el-main>
             <div v-show="Snum==1">
-              <h1>当前账号：{{$store.state.User}}</h1>
-              <h2>当前密码：{{$store.state.UserPassword}}</h2>
+              <h1>当前账号：{{$store.state.Backstage}}</h1>
+              <h2>当前密码：{{$store.state.BackstagePassword}}</h2>
             </div>
-            <el-table v-show="Snum==2" :data="tableData">
+            <el-table v-show="Snum==2" :data="tableData" :key="tableKey">
+              <el-table-column prop="user" label="账号" width="100">
+              </el-table-column>
               <el-table-column prop="type" label="种类" width="100">
               </el-table-column>
               <el-table-column prop="date1" label="日期" width="140">
@@ -65,72 +67,111 @@
 </template>
 
 <script>
-import axios from 'axios';
 import fs from 'fs'
-import ms from 'ms';
     export default {
       data() {
           return {
+            tableKey:0,
               Snum:2,
               address: '',
               number:'',
               text:'',
               date:'',
               radio:'',
-              tableData:[
-                {
-                  name: '',
-                  address: '',
-                  date1: '',
-                  date2: '',
-                  type: '',
-                  desc: '',
-                  Progress:false
-                }
-              ]
+              tableData:[]
           }
       },
       mounted () {
-          var that= this
-          axios.get('./order.json',{
-            "user":that.$store.state.User
-            })
-          .then(function(response){
-            console.log(response)
+        var that= this
+        axios.get('./order.json')
+        .then(function (response) {
             that.tableData = response.data.order
-          });
+          }
+        )
       },
       methods: {
         progress(id) {
-          fs.readFile('./order.json',function(err,data){
-                var msg = JSON.parse(data.toString());
-                msg.order[id].Progress=!msg.order[id].Progress
-                var str = JSON.stringify(msg,'','\t')
-                fs.writeFile('./order.json',str,function(err) {
-                  if (err) {
-                    console.error(err);
-                  }
-                  alert('修改成功');
-                  this.$router.go(0)
-                })
-              })
+          var that =this
+          axios.get(`https://api.github.com/repos/${this.owern}/${this.repo}/contents/${this.path}`, {
+              headers: {
+                  Authorization: `token ${that.token}`,
+                  Accept: 'application/vnd.github.v3.raw+json'
+              }
+          })
+          .then(response => {
+            const data = response.data
+            data.order[id].Progress=!data.order.Progress
+            const content=JSON.stringify(data,'','\t')
+            const body = {
+                message: 'update data',
+                content: Buffer.from(content).toString('base64'),
+                sha: response.headers.etag.replace(/"/g, '')
+            };
+            return axios({
+                method: 'PUT',
+                url: `https://api.github.com/repos/${that.owern}/${that.repo}/contents/${that.path}`,
+                  headers: {
+                    Authorization: `token ${that.token}`,
+                    Accept: 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                data: body
+            });
+          })
+          .then(response => {
+              console.log('File updated successfully:', response.data);
+              alert('修改成功');
+          })
+          .catch(error => {
+              console.error('Error updating file:', error);
+          });
+          var that= this
+          axios.get('./order.json')
+          .then(function (response) {
+              that.tableData = response.data.order
+            }
+          )
         },
         del(id){
-          fs.readFile('./order.json',function(err,data){
-                var msg = JSON.parse(data.toString());
-                msg.order.splice(id,1)
-                for(let i=0;i<msg.order.length;i++){
-                  msg.order[i].id=i
-                }
-                var str = JSON.stringify(msg,'','\t')
-                fs.writeFile('./order.json',str,function(err) {
-                  if (err) {
-                    console.error(err);
-                  }
-                  alert('删除成功');
-                  this.$router.go(0)
-                })
-              })
+          var that =this
+          axios.get(`https://api.github.com/repos/${this.owern}/${this.repo}/contents/${this.path}`, {
+              headers: {
+                  Authorization: `token ${that.token}`,
+                  Accept: 'application/vnd.github.v3.raw+json'
+              }
+          })
+          .then(response => {
+            const data = response.data
+            data.order.splice(id,1)
+            const content=JSON.stringify(data,'','\t')
+            const body = {
+                message: 'update data',
+                content: Buffer.from(content).toString('base64'),
+                sha: response.headers.etag.replace(/"/g, '')
+            };
+            return axios({
+                method: 'PUT',
+                url: `https://api.github.com/repos/${that.owern}/${that.repo}/contents/${that.path}`,
+                  headers: {
+                    Authorization: `token ${that.token}`,
+                    Accept: 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                data: body
+            });
+          })
+          .then(response => {
+              alert('删除成功');
+          })
+          .catch(error => {
+              console.error('Error updating file:', error);
+          });
+          var that= this
+          axios.get('./order.json')
+          .then(function (response) {
+              that.tableData = response.data.order
+            }
+          )
         },
         SetNum(x){
             this.Snum = x
