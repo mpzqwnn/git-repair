@@ -4,8 +4,7 @@
             <img align="left" class="logo" src="../assets/logo.png" :alt="title">
             <span class="title">
                 {{title}}
-                <img class="img" align="right" :src="optionimg" v-show="Width<=1300" @click="open">
-                <div class="option" v-if="Width>1300">
+                <div class="option">
                     <a>
                         <router-link replace class="optionTitle" active-class="check" :to="{name:option[0]}">{{optiontitle[0]}}</router-link>
                         <router-link replace class="optionTitle" active-class="check" :to="{name:option[1]}">{{optiontitle[1]}}</router-link>
@@ -13,23 +12,6 @@
                         <router-link replace class="optionTitle" active-class="check" :to="{name:option[3]}">{{optiontitle[3]}}</router-link>
                         <router-link replace class="optionTitle" active-class="check" :to="{name:option[4]}">{{optiontitle[4]}}</router-link>
                     </a>
-                </div>
-                <div class="option" v-if="Width<1300&&!optionType">
-                    <div>
-                        <router-link class="optionTitle" active-class="check" :to="{name:option[0]}">{{optiontitle[0]}}</router-link>
-                    </div>
-                    <div>
-                        <router-link class="optionTitle" active-class="check" :to="{name:option[1]}">{{optiontitle[1]}}</router-link>
-                    </div>
-                    <div>
-                        <router-link class="optionTitle" active-class="check" :to="{name:option[2]}">{{optiontitle[2]}}</router-link>
-                    </div>
-                    <div>
-                        <router-link class="optionTitle" active-class="check" :to="{name:option[3]}">{{optiontitle[3]}}</router-link>
-                    </div>
-                    <div>
-                        <router-link class="optionTitle" active-class="check" :to="{name:option[4]}">{{optiontitle[4]}}</router-link>
-                    </div>
                 </div>
             </span>
         </div>
@@ -55,13 +37,7 @@
                 this.optionImg ? this.optionimg = "./icon-close.png" : this.optionimg="./menu.png"
                 this.optionImg = !this.optionImg
                 this.optionType = !this.optionType
-                console.log(this.option)
             },
-        },
-        mounted () {
-            setInterval(() => {
-                this.Width = window.outerWidth
-            },16);
         },
     }
 </script>

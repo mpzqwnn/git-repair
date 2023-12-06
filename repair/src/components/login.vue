@@ -19,19 +19,6 @@
                 buttonStyle:"button"
             }
         },
-        mounted () {
-            setInterval(() => {
-                if(window.outerWidth>1300){
-                    this.imgStyle = "img Big"
-                    this.entranceStyle = "entrance Big"
-                    this.buttonStyle = "button Big"
-                    }else{
-                        this.imgStyle = "img Small"
-                        this.entranceStyle = "entrance img Small"
-                        this.buttonStyle = "button Small"
-                    }
-            },16);
-        },
         methods: {
             GoBackstage() {
                 if (this.$store.state.Backstage != '') {
@@ -75,6 +62,8 @@
     width: 80%;
 }
 .entrance{
+    margin-left: 10%;
+    margin-top: 10%;
     text-align: center;
     margin-right: 10%;
 }

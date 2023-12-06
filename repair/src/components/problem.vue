@@ -53,7 +53,6 @@ import notice from './notice.vue'
             var that = this
             axios.get("./db.json")
             .then(function (response) {
-                console.log(response.data.problem)
                 for (let index = 0; index < response.data.problem.length; index++) {
                     let newData={
                         title:response.data.problem[index].title,
@@ -64,16 +63,11 @@ import notice from './notice.vue'
             },function(err){
                 console.log(err)
             })
-            setInterval(() => {
-                window.outerWidth>1000 ? this.information = "Big" : this.information = "Small"
-            },16);
         },
         computed: {
             pageNum() {
                 var i = this.text.length%5
                 var num = 0
-                console.log(this.text.length)
-                console.log(this.$route.path)
                 i>0 ? num = (this.text.length - i)/5 +1 : num = this.text.length / 5
                 return  num
             }

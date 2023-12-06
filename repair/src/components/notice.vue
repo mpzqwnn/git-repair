@@ -30,11 +30,6 @@
                 this.background = ""
             }
         },
-        mounted () {
-            setInterval(() => {
-                window.outerWidth>1200 ? this.imgStyle = "img Big" : this.imgStyle = "img Small"
-            },16);
-        },
         props:['title','message']
     }
 </script>
